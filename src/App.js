@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import NewChat from "./Components/newChat";
 import ChatList from "./Components/chatList";
