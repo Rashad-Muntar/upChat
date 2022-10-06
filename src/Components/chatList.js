@@ -1,37 +1,58 @@
 import React, { useState, useEffect, useRef } from "react";
 import "firebase/firestore";
 import { db } from "../firebase";
-import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
+import {
+  collection,
+  query,
+  onSnapshot,
+  orderBy,
+  limitToLast,
+} from "firebase/firestore";
 import Message from "./message";
-
 
 function ChatList() {
   const [msgs, setMsgs] = useState([]);
+  const [chatLimit, setChatLmimt] = useState(10);
+
   const styles = {
-    wrapper: "bg-white m-[3px] w[100%] h-[93%] rounded-tl-md rounded-tr-md p-[15px] flex flex-col",
+    wrapper:
+      "bg-white m-[3px] scrollbar-hide overflow-scroll w[100%] h-[93%] rounded-tl-md rounded-tr-md p-[15px]  flex flex-col",
   };
-  const scroll = useRef();
+  const scrollDown = useRef();
 
   useEffect(() => {
-    const q = query(collection(db, "messages"), orderBy("timestamp"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    const ref = query(
+      collection(db, "messages"),
+      orderBy("timestamp"),
+      limitToLast(chatLimit)
+    );
+    const unsubscribe = onSnapshot(ref, (querySnapshot) => {
       let messages = [];
       querySnapshot.forEach((doc) => {
         messages.push({ ...doc.data(), id: doc.id });
       });
       setMsgs(messages);
     });
+    scrollDown.current.scrollIntoView({ behavior: "smooth" });
     return () => unsubscribe();
-  }, []);
+  }, [chatLimit]);
+
+  const handleScroll = (e) => {
+    let element = e.target;
+    if (element.scrollTop === 3) {
+      setChatLmimt(chatLimit + 2);
+    }
+  };
 
   return (
     <>
-      <div className={styles.wrapper}>
-      { msgs && msgs.map((chat, index) => (
-        <Message key={index} text={chat.text} name={chat.name}/>
-      ))}
+      <div className={styles.wrapper} onScroll={handleScroll}>
+        <span ref={scrollDown} />
+        {msgs &&
+          msgs.map((chat, index) => (
+            <Message key={index} text={chat.text} name={chat.name} />
+          ))}
       </div>
-      <span ref={scroll} />
     </>
   );
 }
