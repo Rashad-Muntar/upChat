@@ -1,16 +1,23 @@
 import "./App.css";
+import { useSelector } from "react-redux";
 import NewChat from "./Components/newChat";
 import ChatList from "./Components/chatList";
+import NewUser from "./Components/newUser";
 
 function App() {
+  const currentUser = useSelector((state) => state.user);
   const coverStyle =
-    "rounded-md  w-[400px] h-[600px] bg-purple bg-gradient-to-r from-green to-blue shadow-lg shadow-gray flex flex-col";
+    "rounded-md overflow-hidden w-[400px] h-[600px] bg-purple bg-gradient-to-r from-green to-blue shadow-lg shadow-gray flex flex-col";
   return (
-    <div className={coverStyle}>
-       <ChatList />
-      <NewChat />
-     
-    </div>
+    <>
+      <NewUser />
+      {currentUser.username !== "" ? (
+        <div className={coverStyle}>
+          <ChatList />
+          <NewChat />
+        </div>
+      ): <p>PLEASE ENTER YOUR NAME TO OPEN CHAT</p>}
+    </>
   );
 }
 
