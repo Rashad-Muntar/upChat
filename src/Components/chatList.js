@@ -39,7 +39,7 @@ function ChatList() {
 
   const handleScroll = (e) => {
     let element = e.target;
-    if (element.scrollTop === 3) {
+    if (element.scrollTop === 0) {
       setChatLmimt(chatLimit + 2);
     }
   };

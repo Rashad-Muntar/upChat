@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
-import { TextField } from "@mui/material";
+import { Input, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
@@ -20,11 +20,12 @@ const style = {
   p: 4,
 };
 
-export default function NewUser() {
+export default function NewUser({ openModal }) {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [err, setErr] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,10 +34,17 @@ export default function NewUser() {
 
   const nameChangehandler = (e) => {
     setUser(e.target.value);
+    if (e.target.value !== "") {
+      setErr("");
+    }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (user === "") {
+      setErr("Please enter you name first");
+      return;
+    }
     dispatch(setUsername({ username: user }));
     handleClose();
   };
@@ -57,12 +65,16 @@ export default function NewUser() {
         <Fade in={open}>
           <Box sx={style}>
             <form onSubmit={submitHandler}>
-              <TextField
+              <Typography sx={{ color: "red" }}>{err}</Typography>
+              <Input
                 value={user}
-                id="filled-basic"
-                label="Enter your name"
-                variant="filled"
+                placeholder="Enter your name"
+                type="string"
+                fullWidth={true}
                 onChange={nameChangehandler}
+                autoFocus={true}
+                inputProps={{ maxLength: 10 }}
+                sx={{ marginBottom: "12px" }}
               />
               <Box>
                 <Button type="submit" variant="outlined">

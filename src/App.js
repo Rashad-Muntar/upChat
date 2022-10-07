@@ -11,12 +11,12 @@ function App() {
   return (
     <>
       <NewUser />
-      {currentUser.username !== null && (
+      {currentUser.username !== "" ? (
         <div className={coverStyle}>
           <ChatList />
           <NewChat />
         </div>
-      )}
+      ): <p>PLEASE ENTER YOUR NAME TO OPEN CHAT</p>}
     </>
   );
 }
