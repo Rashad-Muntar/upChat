@@ -1,4 +1,4 @@
-# CHECKER TRACKER
+# UPCHAT APP
 
 > This is a chat app that gives a chatting room to unlimited number of users. This is a React and Redux application with firebase as storage space for the data.
 
