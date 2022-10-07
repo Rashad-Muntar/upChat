@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# UPCHAT APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> This is a chat app that gives a chatting room to unlimited number of users. This is a React and Redux application with firebase as storage space for the data.
 
-## Available Scripts
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+### Description
+<b>Checker app</b> The App was built to give a chatting platform to a user who wish to join and share an idear and which every user who is currently log in to the app will receive a real-time message of every participant.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### New user form
+![Screenshot from 2022-10-07 13-15-42](https://user-images.githubusercontent.com/58520480/194563774-5dc29253-de60-47ec-9af6-668c4ad5bfd1.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Chat app
+![Screenshot from 2022-10-07 13-16-02](https://user-images.githubusercontent.com/58520480/194563921-e61ab84a-a48c-49fe-93bd-20e2a26bde77.png)
 
-### `npm test`
+### Prerequisites
+- React.js
+- Redux toolkit
+- Text Editor
+- Git
+- NodeJS
+- Webpack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to clone Repo
+1. Open your Terminal.
+2. Navigate to your desired location to download the contents of this repository.
+3. Copy and paste the following code into the Terminal :
+   ```bash
+   $ git clone https://github.com/Rashad-Muntar/upchat.git
+   ```
+4. Run `cd upchat`
+5. Install the needed dependencies 
+    ```bash
+    $ npm
+    ```
+6. In develoment mode run 
+    ```bash
+    npm start
+    ```
 
-### `npm run build`
+### Usage
+Lauch the local version of this project opening the `localhost:3000` in your browser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Feel free to check the [issues page](https://github.com/Rashad-Muntar/upnex/issues).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Author
 
-### `npm run eject`
+👤 **Rashad Muntar**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- GitHub: [@Rashad-Muntar](https://github.com/Rashad-Muntar)
+- Twitter - [@RashadToure](https://twitter.com/RashadToure)
+- LinkedIn: [Rashad Muntar](https://www.linkedin.com/in/rashad-muntar/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Show your support
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Give a ⭐️ if you like this project!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Attribution
+Firebase
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License
