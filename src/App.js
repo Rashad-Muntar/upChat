@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useSelector } from "react-redux";
+import NewChat from "./Components/newChat";
+import ChatList from "./Components/chatList";
+import NewUser from "./Components/newUser";
 
 function App() {
+  const currentUser = useSelector((state) => state.user);
+  const coverStyle =
+    "rounded-md overflow-hidden sm:w-[400px] md:w-[100%] h-[600px] bg-purple bg-gradient-to-r from-green to-blue shadow-lg shadow-gray flex flex-col";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NewUser />
+      {currentUser.username !== "" ? (
+        <div className={coverStyle}>
+          <ChatList />
+          <NewChat />
+        </div>
+      ): <p>PLEASE ENTER YOUR NAME TO OPEN CHAT</p>}
+    </>
   );
 }
 
