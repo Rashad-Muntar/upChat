@@ -3,13 +3,13 @@ import { db } from "../firebase";
 import { useSelector } from "react-redux";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-
 const styles = {
   form: "self-end flex w-[100%] justify-center py-[10px]",
   input: "w-[70%] rounded-md px-[10px] focus:outline-none ",
   button: "w-[20%] bg-white ml-[10px] rounded-md color-gray",
+  buttonDisale: "w-[20%] bg-gray ml-[10px] rounded-md color-gray",
 };
-function NewChat({scroll}) {
+function NewChat() {
   const [msg, setMsg] = useState("");
   const currentUser = useSelector((state) => state.user);
 
@@ -41,8 +41,13 @@ function NewChat({scroll}) {
         autoFocus={true}
         value={msg}
         onChange={onChangeMsg}
+        name="newMessage"
       />
-      <button type="submit" className={styles.button}>
+      <button
+        disabled={!msg}
+        type="submit"
+        className={msg.length > 0 ? styles.button : styles.buttonDisale}
+      >
         Send
       </button>
     </form>
