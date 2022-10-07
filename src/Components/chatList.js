@@ -13,10 +13,11 @@ import Message from "./message";
 function ChatList() {
   const [msgs, setMsgs] = useState([]);
   const [chatLimit, setChatLmimt] = useState(10);
+  const [isLoading, setIsLoading] = useState(false);
 
   const styles = {
     wrapper:
-      "bg-white m-[3px] scrollbar-hide overflow-scroll w[100%] h-[93%] rounded-tl-md rounded-tr-md p-[15px]  flex flex-col",
+      "bg-white box-border  m-[3px] scrollbar-hide overflow-scroll w[100%] h-[93%] rounded-tl-md rounded-tr-md p-[15px]  flex flex-col",
   };
   const scrollDown = useRef();
 
@@ -26,6 +27,7 @@ function ChatList() {
       orderBy("timestamp"),
       limitToLast(chatLimit)
     );
+    setIsLoading(true);
     const unsubscribe = onSnapshot(ref, (querySnapshot) => {
       let messages = [];
       querySnapshot.forEach((doc) => {
@@ -34,6 +36,7 @@ function ChatList() {
       setMsgs(messages);
     });
     scrollDown.current.scrollIntoView({ behavior: "smooth" });
+    setIsLoading(false);
     return () => unsubscribe();
   }, [chatLimit]);
 
@@ -48,6 +51,7 @@ function ChatList() {
     <>
       <div className={styles.wrapper} onScroll={handleScroll}>
         <span ref={scrollDown} />
+        <small>{isLoading && "Loading..."}</small>
         {msgs &&
           msgs.map((chat, index) => (
             <Message key={index} text={chat.text} name={chat.name} />
