@@ -6,7 +6,7 @@
 <br/>
 
 ### Description
-<b>Checker app</b> The App was built to give a chatting platform to a user who wish to join and share an idear and which every user who is currently log in to the app will receive a real-time message of every participant.
+<b>CUpchat app</b> The App was built to give a chatting platform to a user who wish to join and share an idear and which every user who is currently log in to the app will receive a real-time message of every participant.
 
 ### New user form
 ![Screenshot from 2022-10-07 13-15-42](https://user-images.githubusercontent.com/58520480/194563774-5dc29253-de60-47ec-9af6-668c4ad5bfd1.png)
